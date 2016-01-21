@@ -10,6 +10,9 @@ http://nginx.org/en/docs/beginners_guide.html
 CentOS/RedHat 6,7
 Ubuntu 12,14
 
+### Puppet Version compatibility
+PE 3.8 and greater
+
 ### NOTICE:
 if running SELinux for CentOS/Redhat/Fedora/Ubuntu/Debian, make sure to disable or lower to permissive, otherwise port 8000 wont bind correctly
 

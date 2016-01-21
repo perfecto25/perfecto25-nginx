@@ -38,6 +38,7 @@ $default_file = '/etc/nginx/sites-available/default'
 $root_dir = '/usr/share/nginx/html/'
 $hostname = $::hostname
 $puppet_agent_version = $::puppet_agent_version
+$nginx_port = '8000'
 
 
 

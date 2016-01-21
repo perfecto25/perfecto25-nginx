@@ -2,6 +2,8 @@ class nginx::config (
   $conf_file = $::nginx::params::conf_file,
   $root_dir = $::nginx::params::root_dir,
   $hostname = $::nginx::params::hostname,
+  $nginx_port = $::nginx::params::nginx_port
+  
 ) inherits ::nginx::params {
 
  File {

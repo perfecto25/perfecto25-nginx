@@ -18,10 +18,10 @@
 ##
 
 server {
-	listen 8000 default_server;
+	listen <%= @nginx_port %> default_server;
 	listen [::]:80 default_server ipv6only=on;
 
-	root /usr/share/nginx/html;
+	root <%= @root_dir %>;
 	index index.html index.htm;
 
 	# Make site accessible from http://localhost/

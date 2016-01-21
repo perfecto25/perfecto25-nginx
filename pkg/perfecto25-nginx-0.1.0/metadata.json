@@ -1,0 +1,39 @@
+{
+  "name": "perfecto25-nginx",
+  "version": "0.1.0",
+  "author": "mike reider",
+  "summary": "nginx puppet module",
+  "license": "Apache-2.0",
+  "source": "https://github.com/perfecto25/perfecto25-nginx.git",
+  "project_page": "https://github.com/perfecto25/perfecto25-nginx",
+  "issues_url": "https://github.com/perfecto25/perfecto25-nginx/issues",
+  "dependencies": [
+    {"name":"puppetlabs-stdlib","version_requirement":">= 4.2.0 <5.0.0"}
+  ],
+  "requirements": [
+    {
+      "name": "pe",
+      "version_requirement": "3.x"
+    },
+    {
+      "name": "puppet",
+      "version_requirement": "3.x"
+    }
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "operatingsystemrelease": [
+        "14.04",
+        "12.04"
+      ]
+    }
+  ]
+}

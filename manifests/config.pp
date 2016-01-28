@@ -33,7 +33,7 @@ file { "${default_file}":
 ## Get external index.html content
 exec { 'index':
   path    => $path,
-  command => "rm -f index.html && wget --directory-prefix=${root_dir} $index_url",
+  command => "wget -N --directory-prefix=${root_dir} $index_url",
 }
 
 

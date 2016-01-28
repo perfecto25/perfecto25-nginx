@@ -13,8 +13,9 @@ Ubuntu 12,14
 ### Puppet Version compatibility
 PE 3.8 and greater
 
-### NOTICE:
-if running SELinux for CentOS/Redhat/Fedora/Ubuntu/Debian, make sure to disable or lower to permissive, otherwise port 8000 wont bind correctly
+### PREREQUISITE STEPS:
+- if running SELinux for CentOS/Redhat/Fedora/Ubuntu/Debian, make sure to disable or lower to permissive, otherwise port 8000 wont bind correctly
+- Disable Iptables if firewall is running, otherwise port 8000 wont work
 
 ## How to use this module:
 clone this repository to your modules directory,

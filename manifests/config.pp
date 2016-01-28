@@ -6,7 +6,7 @@ class nginx::config (
   
 ) inherits ::nginx::params {
 
- File {
+File {
     owner => 'root',
     group => 'root',
     mode  => '0644',

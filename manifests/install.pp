@@ -18,23 +18,42 @@ if $puppet_agent_version < '3.8' {
 }
 
 
-# Repo to be added later, add repo update to Params class based on OS
+# Repos
 
-  #exec { 'add repo':
-  # path    => "/usr/bin",
-  # command => "add-apt-repository ppa:nginx/stable",
-  #  before  => Exec['update'],
-  #}
+if $::osfamily == 'RedHat' {
 
-  #exec { "update":
-  # path    => "/usr/bin/",
-  # command => "apt-get update",
-  # before  => Package['nginx'],
-  #}
+$install_options = '-y'
+
+  exec { 'epel-release':
+    command => '/usr/bin/yum install epel-release -y',
+    unless  => '/usr/bin/test -f /etc/yum.repos.d/epel.repo',
+    before  => Package['nginx'],
+}
+}
+
+if $::osfamily == 'Debian' {
+
+$install_options = '--force-yes'
+
+#  exec { 'add repo':
+# path    => '/usr/bin',
+#  command => 'add-apt-repository ppa:nginx/stable -y',
+#  unless  => "test -f /etc/apt/sources.list.d/nginx-stable-*.list",
+#  before  => Exec['update'],
+#  }
+
+#  exec { 'update':
+#  path    => '/usr/bin/',
+#  command => 'apt-get update -y --force-yes',
+#  before  => Package['nginx'],
+#  }
+}
+
 
 package { 'nginx':
-  name   => $package_name,
-  ensure => latest,
+  name            => $package_name,
+  ensure          => latest,
+  install_options => $install_options,
 }
 
 
@@ -55,7 +74,7 @@ user { 'nginx_user':
   password         => '*',
   password_max_age => '99999',
   password_min_age => '0',
-  shell            => '/usr/sbin/nologin',
+  # shell            => '/usr/sbin/nologin',
   require          => Package['nginx'],
 }
 

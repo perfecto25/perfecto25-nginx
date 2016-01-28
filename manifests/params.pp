@@ -32,13 +32,14 @@ class nginx::params {
 
 
 # Defaults Values
-$nginx_dirs = [ '/etc/nginx','/etc/nginx/includes','/etc/nginx/conf.d','/etc/nginx/ssl','/etc/nginx/sites-available','/etc/nginx/sites-enabled' ]
+
 $conf_file = '/etc/nginx/nginx.conf'
 $default_file = '/etc/nginx/sites-available/default'
-$root_dir = '/usr/share/nginx/html/'
+$root_dir = '/usr/share/nginx/www'
 $hostname = $::hostname
 $puppet_agent_version = $::puppet_agent_version
 $nginx_port = '8000'
+$nginx_dirs = [ '/etc/nginx','/etc/nginx/includes','/etc/nginx/conf.d','/etc/nginx/ssl','/etc/nginx/sites-available','/etc/nginx/sites-enabled',$root_dir ]
 
 
 

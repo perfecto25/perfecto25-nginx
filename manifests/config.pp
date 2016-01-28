@@ -3,8 +3,9 @@ class nginx::config (
   $root_dir = $::nginx::params::root_dir,
   $hostname = $::nginx::params::hostname,
   $nginx_port = $::nginx::params::nginx_port,
-  $index_url = $::nginx::params::index_url
-  
+  $index_url = $::nginx::params::index_url,
+  $path = $::nginx::params::path
+
 ) inherits ::nginx::params {
 
 File {
@@ -31,8 +32,8 @@ file { "${default_file}":
 
 ## Get external index.html content
 exec { 'index':
-  path    => '/usr/bin',
-  command => "cd ${root_dir} && rm -f index.html && wget $index_url",
+  path    => $path,
+  command => "rm -f index.html && wget --directory-prefix=${root_dir} $index_url",
 }
 
 

@@ -41,6 +41,6 @@ $puppet_agent_version = $::puppet_agent_version
 $nginx_port = '8000'
 $nginx_dirs = [ '/etc/nginx','/etc/nginx/includes','/etc/nginx/conf.d','/etc/nginx/ssl','/etc/nginx/sites-available','/etc/nginx/sites-enabled',$root_dir ]
 $index_url = 'https://raw.githubusercontent.com/puppetlabs/exercise-webpage/master/index.html'
-
+$path = ['/usr/bin','/bin','/usr/sbin']
 
 }

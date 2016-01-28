@@ -32,13 +32,13 @@ file { "${default_file}":
 ## Get external index.html content
 exec { 'index':
   path    => '/usr/bin',
-  command => "cd ${root_dir} && wget $index_url",
+  command => "cd ${root_dir} && rm -f index.html && wget $index_url",
 }
 
 
 file { "${root_dir}/index.html":
   ensure  => present,
-  content => file('nginx/index.html'),
+  #content => file('nginx/index.html'),
   require => Package['nginx'],
 
 }

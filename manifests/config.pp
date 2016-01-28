@@ -2,7 +2,8 @@ class nginx::config (
   $conf_file = $::nginx::params::conf_file,
   $root_dir = $::nginx::params::root_dir,
   $hostname = $::nginx::params::hostname,
-  $nginx_port = $::nginx::params::nginx_port
+  $nginx_port = $::nginx::params::nginx_port,
+  $index_url = $::nginx::params::index_url
   
 ) inherits ::nginx::params {
 
@@ -25,6 +26,13 @@ file { "${default_file}":
   content => template('nginx/default.erb'),
   require => Package['nginx'],
   notify  => Service['nginx'],
+}
+
+
+## Get external index.html content
+exec { 'index':
+  path    => '/usr/bin',
+  command => "cd ${root_dir} && wget $index_url",
 }
 
 

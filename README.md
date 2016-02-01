@@ -34,5 +34,14 @@ nodeName.yaml
 classes:
    - nginx
 
+### Setting up remote repository sync
+1. in order to serve up the latest 'index.html' file, you need to cron a 'gitpull.sh' script located in nginx/files folder
+2. add new cron for this script,
+   crontab -e
+
+   add a line
+   */15 * * * * /puppet basemodulepath/modules/nginx/files/gitpull.sh  (subsitute basemodule path on your puppet master environment)
+   
+   script will run every 15 min, it will create a remote origin if necessary and pull in freash 'index.html' file from Github
 
 

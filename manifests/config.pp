@@ -31,15 +31,15 @@ file { "${default_file}":
 
 
 ## Get external index.html content
-exec { 'index':
-  path    => $path,
-  command => "wget -N --directory-prefix=${root_dir} $index_url",
-}
+#exec { 'index':
+#  path    => $path,
+#  command => "wget -N --directory-prefix=${root_dir} $index_url",
+#}
 
 
 file { "${root_dir}/index.html":
   ensure  => present,
-  #content => file('nginx/index.html'),
+  content => file('nginx/index.html'),
   require => Package['nginx'],
 
 }

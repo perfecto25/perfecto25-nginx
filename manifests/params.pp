@@ -27,10 +27,6 @@ class nginx::params {
   }
 
 
-
-
-
-
 # Defaults Values
 
 $conf_file = '/etc/nginx/nginx.conf'
@@ -42,5 +38,7 @@ $nginx_port = '8000'
 $nginx_dirs = [ '/etc/nginx','/etc/nginx/includes','/etc/nginx/conf.d','/etc/nginx/ssl','/etc/nginx/sites-available','/etc/nginx/sites-enabled',$root_dir ]
 $index_url = 'https://raw.githubusercontent.com/puppetlabs/exercise-webpage/master/index.html'
 $path = ['/usr/bin','/bin','/usr/sbin']
-
+$remote_git_source = 'https://github.com/puppetlabs/exercise-webpage.git'
+$git_sync_min = '15'  # amount of min between Git syncs (local /nginx/files/repo ->  remote Git repo)
+$modulepath = '/etc/puppetlabs/code/environments/production/modules'
 }

@@ -49,7 +49,7 @@ classes:
   to check cron settings on your PE Master, run 'crontab -l'
   you should see a setting like this:
   
-  # Puppet Name: pullremote
+  \# Puppet Name: pullremote
   \*/15 * * * * /usr/local/bin/puppet apply /etc/puppetlabs/code/environments/production/modules/nginx/tests/pull_remote.pp
 
 

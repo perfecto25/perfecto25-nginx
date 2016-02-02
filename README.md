@@ -50,7 +50,7 @@ classes:
   you should see a setting like this:
   
   # Puppet Name: pullremote
-  */15 * * * * /usr/local/bin/puppet apply /etc/puppetlabs/code/environments/production/modules/nginx/tests/pull_remote.pp
+  \*/15 * * * * /usr/local/bin/puppet apply /etc/puppetlabs/code/environments/production/modules/nginx/tests/pull_remote.pp
 
 
 4. Your '/nginx/files/repo/index.html' file will now be updated directly from Git every 15 min. 

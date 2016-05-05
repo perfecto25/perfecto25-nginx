@@ -24,10 +24,14 @@ if $::osfamily == 'RedHat' {
 
 $install_options = '-y'
 
-  exec { 'epel-release':
-    command => '/usr/bin/yum install epel-release -y',
-    unless  => '/usr/bin/test -f /etc/yum.repos.d/epel.repo',
-    before  => Package['nginx'],
+yumrepo { 'nginx':
+  baseurl => "http://nginx.org/packages/centos/${::operatingsystemmajrelease}/\$basearch/",
+  descr     => 'nginx repo',
+  enabled   => '1',
+  gpgcheck  => '1',
+  priority  => '1',
+  gpgkey    => 'http://nginx.org/keys/nginx_signing.key',
+  before    => Package['nginx'],
 }
 }
 

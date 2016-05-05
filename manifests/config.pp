@@ -30,12 +30,4 @@ file { "${default_file}":
 }
 
 
-file { "${root_dir}/index.html":
-  ensure  => present,
-  content => file('nginx/repo/index.html'),
-  require => Package['nginx'],
-
-}
-
-
 }

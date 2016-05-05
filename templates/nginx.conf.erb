@@ -36,7 +36,7 @@ http {
     include /etc/nginx/conf.d/*.conf;
 
     server {
-        listen       <%= @nginx_port %> default_server;
+        listen       <%= @nginx_port %>;
         listen       [::]:<%= @nginx_port %> default_server ipv6only=on;
         server_name  _;
         root         <%= @root_dir %>;

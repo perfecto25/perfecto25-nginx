@@ -8,12 +8,12 @@ package { 'git':
   ensure => installed,
 }
 
-vcsrepo { $root_dir:
-  ensure    => present,
-  provider  => git,
-  source    => $remote_git_source,
-  revision  => 'master',
-  force     => true,
-}
+#vcsrepo { $root_dir:
+#  ensure    => present,
+#  provider  => git,
+#  source    => $remote_git_source,
+#  revision  => 'master',
+#  force     => true,
+#}
 
 }
